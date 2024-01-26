@@ -1,7 +1,9 @@
 const express = require("express");
+
 const collection = require("./mongo");
 const cors = require("cors");
 const app = express();
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use((req, res, next) => {
@@ -124,6 +126,6 @@ app.get("/user/:email", async (req, res) => {
   }
 });
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
   console.log("port connected");
 });
